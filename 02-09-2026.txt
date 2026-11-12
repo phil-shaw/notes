@@ -1,0 +1,64 @@
+# Pico mpremote
+
+Commands to use mpremote on the Pico
+
+Setup a venv and pip install mpremote micropython-rp2-stubs
+
+
+Below are the mpremote commands.
+
+
+1. Connection & Interaction
+
+mpremote repl: 
+  Drops you into the live, interactive Pico terminal. Use this to type Python code directly onto the   
+  board. Press Ctrl+] to exit back to your computer terminal.
+
+mpremote reset: 
+  Soft-reboots your Pico. This restarts the onboard code (like main.py) from the beginning without 
+  unplugging the USB cable.
+
+
+2. File Management 
+(Pico Filesystem)Always use a colon (:) before a filename to indicate it lives on the Pico.
+
+mpremote ls: 
+  Lists all files and folders saved inside the Pico's memory.
+
+mpremote cat :main.py: 
+  Prints the contents of a file stored on the Pico directly to your screen.
+
+mpremote rm :old_file.py: 
+  Deletes a file from the Pico.
+
+
+3. File Transfer & Execution
+
+mpremote cp local.py :remote.py: 
+  Copies a file from your computer to your Pico.
+
+mpremote cp :remote.py local.py: 
+  Copies a file from your Pico back down to your computer.
+
+mpremote run script.py: 
+  Executes a Python script from your computer directly on the Pico's RAM. It runs immediately but does not 
+  save the file to the Pico. Great for quick testing!
+
+
+4. The Pro-Workflow Tool
+
+mpremote mount .: 
+  Temporarily mirrors your computer's current folder (.) directly onto the Pico's filesystem.
+  💡 Why this is a game-changer: While this command is running in a terminal, the Pico acts 
+  as if your computer's files are its own. 
+  You can edit files in VS Code on your computer, and the Pico will import and run the updated versions  
+  instantly without you ever needing to type mpremote cp.
+
+# neovim commands
+
+use :%s/oldtext/newtext to find replace in nvim.
+or for current line :./oldtext/newtext
+
+
+
+

@@ -1,0 +1,6 @@
+Just trying to get started on the note taking!
+
+I have rebuilt the Thinkpad and HP Envy with EndeavourOS and I3 wm, It looks like the
+system i have been looking for. A good mix command line with a gui to drop into firefox etc.
+
+

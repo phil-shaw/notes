@@ -1,0 +1,40 @@
+# 2026-09-24: RP2040 Timer Peripheral Subsystem
+
+## [Objective]
+* What specific question am I trying to answer today? 
+* (e.g., "Configuring the 64-bit microsecond counter without using standard SDK delay functions.")
+
+## [Hypothesis / Reading Notes]
+* Summarise what the datasheet says about this peripheral in my own words.
+* Register Addresses to target:
+  - TIMER_BASE = 0x40054000
+  - TIMELR (Low 32-bits of counter) = Offset 0x0c
+* The Core Rule: To read the time, the datasheet says I must read TIMEHR first, then TIMELR, because...
+
+## [Hardware Rig & Safety Checklist]
+- [ ] USB Hub connected: Yes
+- [ ] Target Pico isolated on acrylic base: Yes
+- [ ] Visual inspection for short circuits complete: Yes
+
+## [Lab Log & Code Mutations]
+* Document changes line-by-line as you test them with GDB.
+* 10:15 AM - Tried hitting the TIMELR register directly. GDB gave a HardFault error. 
+* Why it failed: Realised I forgot to release the Timer block from the Reset Controller (`RESETS_BASE`). The peripheral was physically powered down.
+
+## [The "Future Me" Summary]
+* If I open this file in 6 months, what is the single golden nugget of info I need?
+* *Key Takeaway:* Always wake up the clock gate for a peripheral before touching its registers!
+
+
+Above is a template for my Embedded programming journey.
+
+
+## [Workstation setup]
+I installed the suggested linux version xubuntu on my envy dv7 laptop.
+installed the arm build tools and micropython extensions along with vs code.
+
+used a pre written blink source code just to test that it works uploads and runs on a pico.
+I will now move on to build a blink.py with a interupt timer and callback function to toggle the led, i have a good idea what i need to do but only intend to use the official SDK no example code or videos.
+
+
+

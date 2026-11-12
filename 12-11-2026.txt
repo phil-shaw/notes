@@ -1,6 +1,6 @@
 installed jupyter lab in the projects folder, it runs in a venv under python.
 to run activate the venv with...
-    source .venv/bin/activete 
+    source .venv/bin/activate 
     jupyter lab
 
 
